@@ -1,3 +1,39 @@
+@import url("https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@300;500&display=swap");
+
 @tailwind base;
 @tailwind components;
 @tailwind utilities;
+
+@layer components {
+  :root {
+    font-family: "Space Grotesk", sans-serif;
+    font-size: 18px;
+  }
+
+  .bg-mobile {
+    background-image: url("/bg-main-mobile.png");
+    background-size: cover;
+  }
+  .bg-desktop {
+    background-image: url("/bg-main-desktop.png");
+    background-color: white;
+    background-size: 75% 100%;
+    background-position: left;
+    background-repeat: no-repeat;
+  }
+
+  .card {
+    @apply lg:w-[447px] w-[286px] lg:h-[245px] h-[157px] rounded-lg bg-contain;
+  }
+
+  .card-back {
+    background-image: url("/bg-card-back.png");
+  }
+  .card-front {
+    background-image: url("/bg-card-front.png");
+  }
+
+  .label {
+    @apply text-xs uppercase tracking-wide text-violet-800;
+  }
+}
