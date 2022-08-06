@@ -13,15 +13,17 @@ export type FormData = {
   cvc: string;
 };
 
+const initialData = {
+  cardHolder: "",
+  cardNumber: "",
+  month: "",
+  year: "",
+  cvc: "",
+};
+
 function App() {
   const [submitted, setSubmitted] = useState(false);
-  const [formData, setFormData] = useState<FormData>({
-    cardHolder: "",
-    cardNumber: "",
-    month: "",
-    year: "",
-    cvc: "",
-  });
+  const [formData, setFormData] = useState<FormData>(initialData);
 
   const handleSubmit = (event: FormEvent<HTMLFormElement>) => {
     event.preventDefault();
@@ -71,7 +73,10 @@ function App() {
             <p className="mt-4 text-violet-600">We've added your card details</p>
             <button
               className="p-4 mt-10 leading-none rounded-lg text-base text-white bg-violet-800"
-              onClick={() => setSubmitted(false)}
+              onClick={() => {
+                setSubmitted(false);
+                setFormData(initialData);
+              }}
             >
               Continue
             </button>
