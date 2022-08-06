@@ -1,4 +1,4 @@
-import { ChangeEvent, Dispatch, SetStateAction } from "react";
+import { ChangeEvent, Dispatch, FormEvent, SetStateAction, useState } from "react";
 
 import type { FormData } from "../App";
 import Entry from "./Entry";
@@ -7,9 +7,10 @@ import Expiration from "./Expiration";
 interface FormProps {
   formData: FormData;
   setFormData: Dispatch<SetStateAction<FormData>>;
+  handleSubmit: (event: FormEvent<HTMLFormElement>) => void;
 }
 
-function Form({ formData, setFormData }: FormProps) {
+function Form({ formData, setFormData, handleSubmit }: FormProps) {
   const handleChange = (key: string, e: ChangeEvent<HTMLInputElement>) => {
     setFormData((data) => ({
       ...data,
@@ -30,7 +31,7 @@ function Form({ formData, setFormData }: FormProps) {
   };
 
   return (
-    <form className="grid gap-4 max-w-[30rem] lg:ml-0 lg:mr-8 mx-auto" action="">
+    <form className="grid gap-4 max-w-[380px] lg:ml-0 lg:mr-8 mx-auto" onSubmit={handleSubmit}>
       <Entry
         label="Cardholder name"
         placeholder="e.g. Jane Appleseed"
@@ -63,7 +64,7 @@ function Form({ formData, setFormData }: FormProps) {
           value={formData.cvc}
           error={{
             validation: "^([0-9]){3}$",
-            message: "Can't be blank, only numbers.",
+            message: "Can't be blank",
           }}
           max={3}
           handleChange={(e) => handleChange("cvc", e)}

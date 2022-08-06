@@ -24,6 +24,7 @@
 
   .card {
     @apply lg:w-[447px] w-[286px] lg:h-[245px] h-[157px] rounded-lg bg-contain;
+    box-shadow: 0 0 3rem 0 rgba(0, 0, 0, 0.3);
   }
 
   .card-back {
