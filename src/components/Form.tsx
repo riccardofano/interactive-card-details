@@ -31,7 +31,7 @@ function Form({ formData, setFormData, handleSubmit }: FormProps) {
   };
 
   return (
-    <form className="grid gap-4 max-w-[380px] lg:ml-0 lg:mr-8 mx-auto" onSubmit={handleSubmit}>
+    <form className="grid gap-6 max-w-[380px] lg:m-0 mx-auto" onSubmit={handleSubmit}>
       <Entry
         label="Cardholder name"
         placeholder="e.g. Jane Appleseed"
@@ -51,7 +51,7 @@ function Form({ formData, setFormData, handleSubmit }: FormProps) {
         }}
       />
 
-      <div className="grid grid-cols-2 gap-2">
+      <div className="grid grid-cols-2 gap-4">
         <Expiration
           month={formData.month}
           year={formData.year}

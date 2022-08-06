@@ -21,13 +21,13 @@ function Expiration({ month, year, handleMonthChange, handleYearChange }: Expira
   return (
     <div>
       <label
-        className={`label | relative grid grid-cols-2 gap-2 ${isAnyFieldInvalid ? "mb-4" : ""}`}
+        className={`label | relative grid grid-cols-2 gap-x-2 gap-y-1 ${isAnyFieldInvalid ? "mb-4" : ""}`}
         htmlFor="expiration-date"
       >
         <span className="row-start-1 col-span-full">Exp. Date (MM/YY)</span>
         <input
           ref={monthRef}
-          className={`py-2 px-4 w-full border rounded-lg text-base ${
+          className={`py-2 px-3 w-full border rounded-lg text-base ${
             isMonthInvalid ? "outline outline-1 outline-red-500" : ""
           }`}
           type="text"
@@ -42,7 +42,7 @@ function Expiration({ month, year, handleMonthChange, handleYearChange }: Expira
         />
         <input
           ref={yearRef}
-          className={`py-2 px-4 w-full border rounded-lg text-base ${
+          className={`py-2 px-3 w-full border rounded-lg text-base ${
             isYearInvalid ? "outline outline-1 outline-red-500" : ""
           }`}
           type="text"

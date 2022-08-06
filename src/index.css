@@ -10,6 +10,13 @@
     font-size: 18px;
   }
 
+  .container-grid {
+    display: grid;
+    grid-template-columns: 49% 51%;
+    gap: 128px;
+    min-height: 100vh;
+  }
+
   .bg-mobile {
     background-image: url("/bg-main-mobile.png");
     background-size: cover;
@@ -17,7 +24,7 @@
   .bg-desktop {
     background-image: url("/bg-main-desktop.png");
     background-color: white;
-    background-size: 75% 100%;
+    background-size: 69% 100%;
     background-position: left;
     background-repeat: no-repeat;
   }
@@ -35,6 +42,6 @@
   }
 
   .label {
-    @apply text-xs uppercase tracking-wide text-violet-800;
+    @apply text-[0.7rem] uppercase tracking-wide text-violet-800;
   }
 }

@@ -28,7 +28,7 @@ function Entry({ label, placeholder, max, error, value, handleChange }: EntryPro
         ref={ref}
         className={`${
           shouldShowError ? "outline outline-1 outline-red-500" : ""
-        } py-2 px-4 mt-2 w-full border rounded-lg text-base`}
+        } py-2 px-3 mt-1 w-full border rounded-lg text-base`}
         type="text"
         placeholder={placeholder}
         maxLength={max}
