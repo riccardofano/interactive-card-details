@@ -20,19 +20,19 @@ function Expiration({ month, year, handleMonthChange, handleYearChange }: Expira
 
   return (
     <div>
-      <label
-        className={`label | relative grid grid-cols-2 gap-x-2 gap-y-1 ${isAnyFieldInvalid ? "mb-4" : ""}`}
-        htmlFor="expiration-date"
-      >
+      <div className={`label | relative grid grid-cols-2 gap-x-2 gap-y-1 ${isAnyFieldInvalid ? "mb-4" : ""}`}>
         <span className="row-start-1 col-span-full">Exp. Date (MM/YY)</span>
+        <label className="sr-only" htmlFor="month">
+          Expiration month
+        </label>
         <input
           ref={monthRef}
+          id="month"
           className={`py-2 px-3 w-full border rounded-lg text-base ${
             isMonthInvalid ? "outline outline-1 outline-red-500" : ""
           }`}
           type="text"
           placeholder="MM"
-          name="expiration-date"
           value={month}
           maxLength={2}
           pattern="^(0?[1-9]|1[012])$"
@@ -40,14 +40,17 @@ function Expiration({ month, year, handleMonthChange, handleYearChange }: Expira
           onChange={handleMonthChange}
           onFocus={() => setMonthHadFocus(true)}
         />
+        <label className="sr-only" htmlFor="year">
+          Expiration year
+        </label>
         <input
           ref={yearRef}
+          id="year"
           className={`py-2 px-3 w-full border rounded-lg text-base ${
             isYearInvalid ? "outline outline-1 outline-red-500" : ""
           }`}
           type="text"
           placeholder="YY"
-          name="expiration-date"
           value={year}
           pattern="([0-9]){2}"
           required
@@ -58,7 +61,7 @@ function Expiration({ month, year, handleMonthChange, handleYearChange }: Expira
         {isAnyFieldInvalid && (
           <span className="normal-case absolute top-full right-0 mt-2 text-red-500">Can't be blank</span>
         )}
-      </label>
+      </div>
     </div>
   );
 }
